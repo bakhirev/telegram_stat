@@ -1,0 +1,15 @@
+@import 'src/styles/variables';
+
+.page {
+  display: block;
+  max-width: 900px;
+  padding: 0;
+  margin: var(--space-xxl) auto;
+
+  &_wrapper {
+    min-height: 100vh;
+    padding: var(--space-l);
+    box-sizing: border-box;
+    background-color: var(--color-border);
+  }
+}
