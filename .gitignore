@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+/.vscode
+/.pnp
+/.idea
+/build
+/src/ts/translations/src/transactions
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
