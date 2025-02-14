@@ -9,6 +9,7 @@ import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 
 import { getMax } from 'ts/pages/Common/helpers/getMax';
+import dataGripStore from 'ts/store/DataGrip';
 import { getDate } from 'ts/helpers/formatter';
 
 interface UserListProps {
@@ -19,6 +20,7 @@ interface UserListProps {
 
 function UserList({ response, updateSort, rowsForExcel }: UserListProps) {
   if (!response) return null;
+  const users = dataGripStore.dataGrip.users;
 
   const messagesNumberChart = getOptions({
     max: getMax(response, 'messagesNumber'),
@@ -28,6 +30,18 @@ function UserList({ response, updateSort, rowsForExcel }: UserListProps) {
   const messagesSizeChart = getOptions({
     max: getMax(response, 'messagesSize'),
     suffix: 'page.team.author.days',
+  });
+
+  const reactionsReceivedChart = getOptions({
+    order: users.order,
+    max: getMax(response, 'reactionsReceivedTotal'),
+    suffix: 'page.team.author.reactionsReceived',
+  });
+
+  const reactionsGiveChart = getOptions({
+    order: users.order,
+    max: getMax(response, 'reactionsGiveTotal'),
+    suffix: 'page.team.author.reactionsGive',
   });
 
   return (
@@ -42,20 +56,6 @@ function UserList({ response, updateSort, rowsForExcel }: UserListProps) {
         template={ColumnTypesEnum.STRING}
         properties="name"
         title="page.main.users.name"
-      />
-      <Column
-        template={ColumnTypesEnum.STRING}
-        properties="from"
-        title="page.main.users.from"
-        formatter={getDate}
-        width={140}
-      />
-      <Column
-        template={ColumnTypesEnum.STRING}
-        properties="to"
-        title="page.main.users.to"
-        formatter={getDate}
-        width={140}
       />
       <Column
         template={ColumnTypesEnum.SHORT_NUMBER}
@@ -88,6 +88,52 @@ function UserList({ response, updateSort, rowsForExcel }: UserListProps) {
             value={value}
           />
         )}
+      />
+      <Column
+        template={ColumnTypesEnum.SHORT_NUMBER}
+        properties="reactionsReceivedTotal"
+      />
+      <Column
+        isSortable="reactionsReceivedTotal"
+        title="page.main.users.reactionsReceived"
+        minWidth={150}
+        template={(row: any) => (
+          <LineChart
+            options={reactionsReceivedChart}
+            value={row.reactionsReceivedTotal}
+            details={row.reactionsReceived}
+          />
+        )}
+      />
+      <Column
+        template={ColumnTypesEnum.SHORT_NUMBER}
+        properties="reactionsGiveTotal"
+      />
+      <Column
+        isSortable="reactionsGiveTotal"
+        title="page.main.users.reactionsGive"
+        minWidth={150}
+        template={(row: any) => (
+          <LineChart
+            options={reactionsGiveChart}
+            value={row.reactionsGiveTotal}
+            details={row.reactionsGive}
+          />
+        )}
+      />
+      <Column
+        template={ColumnTypesEnum.STRING}
+        properties="from"
+        title="page.main.users.from"
+        formatter={getDate}
+        width={140}
+      />
+      <Column
+        template={ColumnTypesEnum.STRING}
+        properties="to"
+        title="page.main.users.to"
+        formatter={getDate}
+        width={140}
       />
     </DataView>
   );

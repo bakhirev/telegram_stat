@@ -1,10 +1,17 @@
 @import 'src/styles/variables';
 
 .page {
-  display: block;
-  max-width: 900px;
-  padding: 0;
-  margin: var(--space-xxl) auto;
+  &_small,
+  &_full {
+    display: block;
+    max-width: 900px;
+    padding: 0;
+    margin: var(--space-xxl) auto;
+  }
+
+  &_full {
+    max-width: 96vw;
+  }
 
   &_wrapper {
     min-height: 100vh;

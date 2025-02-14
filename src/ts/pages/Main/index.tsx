@@ -26,15 +26,17 @@ const Total = observer(({
 
   return (
     <div className={style.page_wrapper}>
-      <div className={style.page}>
+      <div className={style.page_small}>
         <DepartmentCharts/>
+      </div>
+      <div className={style.page_full}>
         <Title title="page.main.users.title"/>
         <DataLoader
           to="response"
           loader={getFakeLoader(users, mode)}
         >
           <List/>
-          <Pagination />
+          <Pagination/>
         </DataLoader>
       </div>
     </div>
