@@ -53,3 +53,13 @@ export default function initializationI18n(userLanguage?: string) {
   });
 }
 
+export function onChangeLanguage(i18n: any, code: string) {
+  if (!code) return;
+  localization.language = code;
+  i18n.changeLanguage(code);
+  if (code === BROWSER_LANGUAGE) {
+    localStorage.removeItem('language');
+  } else {
+    localStorage.setItem('language', code);
+  }
+}

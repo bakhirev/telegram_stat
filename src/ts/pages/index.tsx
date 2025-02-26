@@ -9,7 +9,6 @@ import Confirm from 'ts/components/ModalWindow/Confirm';
 
 import PageWrapper from './PageWrapper';
 import Common from './Person/index';
-import Person from './Person/index';
 import Welcome from './Welcome/index';
 
 function ViewWithCharts() {
@@ -18,18 +17,10 @@ function ViewWithCharts() {
       <Confirm />
       <Routes>
         <Route
-          path="/:type/:page"
-          element={(
-            <PageWrapper>
-              <Common />
-            </PageWrapper>
-          )}
-        />
-        <Route
           path="/:type/:page/:userId"
           element={(
             <PageWrapper>
-              <Person />
+              <Common />
             </PageWrapper>
           )}
         />
@@ -68,7 +59,7 @@ const Main = observer(() => {
 
   useEffect(() => {
     if (view !== ViewNameEnum.INFO || window.location.hash) return;
-    window.location.hash = '#/common/total';
+    window.location.hash = '#/common/total/all';
   }, [view]);
 
   if (view === ViewNameEnum.EMPTY) return null;

@@ -1,0 +1,38 @@
+@import 'src/styles/variables';
+
+.welcome_main {
+  display: block;
+  margin: 0 auto ;
+  padding: 120px 0 32px;
+
+  box-sizing: border-box;
+  text-align: center;
+
+  &_title,
+  &_description {
+    font-size: 46px;
+    font-weight: 700;
+
+    display: block;
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto;
+
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    color: var(--color-white);
+  }
+
+  &_title {
+    margin-bottom: 20px
+  }
+
+  &_description {
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 620px
+  }
+}

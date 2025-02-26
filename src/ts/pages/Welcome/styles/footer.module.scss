@@ -1,0 +1,139 @@
+@import 'src/styles/variables';
+
+
+.welcome_footer {
+  display: block;
+  padding: 0;
+  margin: 128px auto 0;
+
+  text-align: center;
+  border-top: 1px solid #ddd;
+
+  &_top {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 800px;
+    padding: var(--space-xxl) 0;
+    margin: 0 auto;
+
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &_nav {
+    display: inline-block;
+    width: max-content;
+
+    box-sizing: border-box;
+    vertical-align: top;
+    white-space: normal;
+
+    &:first-child {
+      padding: 0 var(--space-xxl) var(--space-xxl) 0;
+      border: 1px solid #ddd;
+      border-left: none;
+      border-top: none;
+    }
+
+    &:nth-child(5n+3) {
+      border-left: 1px solid #ddd;
+      padding-left: 24px;
+    }
+  }
+
+  &_list {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &_item {
+      list-style-type: none;
+      text-align: left;
+    }
+  }
+
+  &_bottom,
+  &_link,
+  &_text,
+  &_title {
+    font-size: 16px;
+    font-weight: 100;
+
+    display: block;
+    width: 100%;
+    margin: 0 auto var(--space-m);
+
+    line-height: 1.5;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    text-overflow: ellipsis;
+
+    color: #3c3c3d;
+  }
+
+  &_title {
+    font-weight: 700;
+    min-height: var(--space-xxl);
+  }
+
+  &_link:hover {
+    background-color: #eee;
+    text-decoration: underline;
+  }
+
+  &_bottom {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    padding: var(--space-m) 0;
+    margin: 0 auto;
+
+    text-align: right;
+  }
+}
+
+@media (max-width: 900px) {
+  .welcome_footer {
+    &_top {
+      padding: 0;
+      border: none;
+      white-space: normal
+    }
+
+    &_nav,
+    &_top {
+      display: block;
+      width: 100%
+    }
+
+    &_nav {
+      padding: var(--space-m) var(--space-xxl);
+
+      &:nth-child(odd) {
+        background-color: #eee;
+      }
+
+      &:first-child,
+      &:nth-child(5n+3) {
+        padding: var(--space-m) var(--space-xxl);
+        border: none;
+      }
+    }
+
+    &_bottom,
+    &_link,
+    &_text,
+    &_title {
+      padding: var(--space-m) 0;
+      margin: 0 auto;
+    }
+
+    &_bottom {
+      padding: var(--space-m) var(--space-xxl);
+    }
+  }
+}

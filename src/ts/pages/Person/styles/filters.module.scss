@@ -1,0 +1,30 @@
+@import 'src/styles/variables';
+
+.table_filters {
+  margin: 0 0 24px;
+
+  &_item {
+    display: inline-block;
+    width: 350px;
+    margin: 0 24px 0 0;
+    vertical-align: top;
+  }
+
+  &_item:first-child {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .table_filters {
+    &_item {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+
+    &_item:first-child {
+      margin-bottom: 24px;
+    }
+  }
+}

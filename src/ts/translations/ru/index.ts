@@ -17,15 +17,16 @@ export default `
 § page.print.modal.type: Текущий раздел
 § page.print.modal.all: Всю статистику
 § page.print.modal.cancel: Отмена
+§ page.welcome.contacts: Контакты
 § page.welcome.title: Статистика чатов в Телеграмме
 § page.welcome.description: Разбивка по дням, часам, пользователям. Подсчёт активных участников. Анализ активности и реакций.
 § page.welcome.steps: Как посмотреть
-§ page.welcome.step1: Нажмите «...» в правом верхнем углу
-§ page.welcome.step2: Выберите пункт «Экспорт истории чата»
-§ page.welcome.step3: Снимите все галочки
-§ page.welcome.step4: Выберите формат «JSON»
-§ page.welcome.step5: Нажмите «Показать файл»
-§ page.welcome.step6: Перетащите файл в окно браузера
+§ page.welcome.step1: Нажмите «...» в правом верхнем углу.
+§ page.welcome.step2: Выберите пункт «Экспорт истории чата».
+§ page.welcome.step3: Снимите все галочки.
+§ page.welcome.step4: Выберите формат «JSON».
+§ page.welcome.step5: Нажмите «Показать файл».
+§ page.welcome.step6: Перетащите файл в окно браузера.
 § page.welcome.languages: Язык
 § page.welcome.about: О нас
 § page.main.chart.title: Количество сообщений
