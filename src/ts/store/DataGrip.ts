@@ -6,7 +6,7 @@ import { applicationHasCustom } from 'ts/helpers/RPC';
 
 // import userSettingsStore from './UserSettings';
 import viewNameStore, { ViewNameEnum } from './ViewName';
-import { History, MessageInfo } from 'ts/interfaces/Telegramm';
+import { History, MessageInfo } from 'ts/interfaces/CommonMessage';
 
 class DataGripStore {
   commits: any[] = [];

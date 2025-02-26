@@ -1,37 +1,85 @@
 import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 import dataGripStore from 'ts/store/DataGrip';
 import viewNameStore, { ViewNameEnum } from 'ts/store/ViewName';
 import DropZone from 'ts/components/DropZone';
+import Confirm from 'ts/components/ModalWindow/Confirm';
 
-import MainView from './Main/index';
+import PageWrapper from './PageWrapper';
+import Common from './Person/index';
+import Person from './Person/index';
 import Welcome from './Welcome/index';
 
-let bugInReactWithDoubleInit = 1;
+function ViewWithCharts() {
+  return (
+    <>
+      <Confirm />
+      <Routes>
+        <Route
+          path="/:type/:page"
+          element={(
+            <PageWrapper>
+              <Common />
+            </PageWrapper>
+          )}
+        />
+        <Route
+          path="/:type/:page/:userId"
+          element={(
+            <PageWrapper>
+              <Person />
+            </PageWrapper>
+          )}
+        />
+        <Route
+          path="*"
+          element={(
+            <PageWrapper>
+              <Common />
+            </PageWrapper>
+          )}
+        />
+      </Routes>
+    </>
+  );
+}
+
+function ViewWithWelcome() {
+  return (
+    <Routes>
+      <Route
+        path="*"
+        element={(
+          <Welcome />
+        )}
+      />
+    </Routes>
+  );
+}
+
 const Main = observer(() => {
   const view = viewNameStore.view;
 
   useEffect(() => {
-    // @ts-ignore
-    const list = window?.report || [];
-    if (list?.length && bugInReactWithDoubleInit !== list?.length) {
-      bugInReactWithDoubleInit = list?.length;
-      dataGripStore.asyncSetCommits(list);
-    } else {
-      viewNameStore.toggle(ViewNameEnum.WELCOME);
-    }
+    viewNameStore.toggle(ViewNameEnum.WELCOME);
   }, []);
+
+  useEffect(() => {
+    if (view !== ViewNameEnum.INFO || window.location.hash) return;
+    window.location.hash = '#/common/total';
+  }, [view]);
 
   if (view === ViewNameEnum.EMPTY) return null;
 
   return (
     <>
       {view === ViewNameEnum.WELCOME && (
-        <Welcome />
+        <ViewWithWelcome />
       )}
       {view === ViewNameEnum.INFO && (
-        <MainView />
+        <ViewWithCharts />
       )}
       <DropZone
         onChange={(type: string, json: any) => {

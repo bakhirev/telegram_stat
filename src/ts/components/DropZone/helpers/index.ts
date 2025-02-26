@@ -1,3 +1,6 @@
+import { TelegramHistory } from 'ts/interfaces/Telegramm';
+import Parser from 'ts/helpers/Parser';
+
 export async function getStringFromFileList(files: any) {
   const text: string[] = await Promise.all(
     files.map((file: any) => file.text()),
@@ -23,7 +26,8 @@ export function getOnDrop(setLoading: Function, onChange: Function) {
     const text = await getStringFromFileList(files);
     if (!text || text.length < 2) return;
 
-    const report = JSON.parse(text);
+    const json = JSON.parse(text) as TelegramHistory;
+    const report = Parser(json);
     onChange('dump', report);
   };
 }

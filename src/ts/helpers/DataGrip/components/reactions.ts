@@ -1,5 +1,5 @@
 import { HashMap } from 'ts/interfaces/HashMap';
-import { MessageInfo, ReactionAuthor, ReactionInfo } from 'ts/interfaces/Telegramm';
+import { MessageInfo, ReactionAuthor, ReactionInfo } from 'ts/interfaces/CommonMessage';
 
 export default class DataGripByReactions {
   users: HashMap<any> = new Map();
@@ -12,7 +12,7 @@ export default class DataGripByReactions {
     const reactions = messageInfo?.reactions;
     if (!reactions?.length) return;
 
-    const author = this.#getUserInfo(messageInfo.from_id);
+    const author = this.#getUserInfo(messageInfo.userId);
 
     reactions.forEach((reaction: ReactionInfo) => {
       author.receivedTotal += reaction.count;
@@ -21,8 +21,8 @@ export default class DataGripByReactions {
         const user = this.#getUserInfo(recent.from_id);
         user.giveTotal += 1;
 
-        const toUser = (user.give.get(messageInfo.from_id) || 0) + 1;
-        user.give.set(messageInfo.from_id, toUser);
+        const toUser = (user.give.get(messageInfo.userId) || 0) + 1;
+        user.give.set(messageInfo.userId, toUser);
 
         const fromUser = (author.received.get(recent.from_id) || 0) + 1;
         author.received.set(recent.from_id, fromUser);

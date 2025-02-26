@@ -1,4 +1,5 @@
 export const ONE_DAY = 24 * 60 * 60 * 1000;
+export const ONE_WEEK = 7 * ONE_DAY;
 
 export function getLangPrefix() {
   // @ts-ignore
@@ -39,14 +40,26 @@ export function getDayName(index:number, weekday: 'long' | 'short') { // @ts-ign
   return dayName;
 }
 
-export function getCustomDate(timestamp: string, options?: any) {
+export function get2Number(time: number) {
+  return time < 10 ? `0${time}` : time;
+}
+
+export function getCustomDate(timestamp: string | number, options?: any) {
   if (!timestamp) return '';
   const date = new Date(timestamp);
   return date.toLocaleString(getLangPrefix(), options || { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-export function getDate(timestamp: string) {
+export function getDate(timestamp: string | number) {
   return getCustomDate(timestamp, { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+export function getShortDate(timestamp: string | number) {
+  return getCustomDate(timestamp, { day: 'numeric', month: 'long' });
+}
+
+export function getShortTime(timestamp: string | number) {
+  return getCustomDate(timestamp, { hour: 'numeric', minute: 'numeric' });
 }
 
 export function getDateForExcel(timestamp: string) {
@@ -54,3 +67,10 @@ export function getDateForExcel(timestamp: string) {
   const date = new Date(timestamp);
   return date.toISOString().substring(0, 10).split('-').reverse().join('.');
 }
+
+export function getShortDateRange({ from, to }: any) {
+  return from && to
+    ? `${getShortDate(from)} — ${getDate(to)}`
+    : `${getDate(from)}${getDate(to)}`;
+}
+

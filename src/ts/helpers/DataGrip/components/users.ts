@@ -1,33 +1,12 @@
 import { HashMap } from 'ts/interfaces/HashMap';
-import { MessageInfo } from 'ts/interfaces/Telegramm';
+import { MessageInfo } from 'ts/interfaces/CommonMessage';
 
 import { WeightedAverage } from 'ts/helpers/Math';
 
-function getTextLength(text: any): number {
-  if (typeof text === 'string') {
-    return text.length;
-  } else if (Array.isArray(text)) {
-    return text.reduce((sum: number, item: string) => (
-      sum + getTextLength(item)
-    ), 0);
-  } else if (text?.type === 'plain') {
-    return text?.text?.length || 0;
-  }
-  return 0;
-}
-
-function replaceIdToName(users: HashMap<any>, details: HashMap<number>) {
-  const newDetails = {};
-  const list = Object.fromEntries(details);
-  for (let id in list) {
-    const name = users.get(id)?.name || id;
-    newDetails[name] = list[id];
-  }
-  return newDetails;
-}
-
 export default class DataGripByAuthor {
   messages: HashMap<any> = new Map();
+
+  refUserIdName: HashMap<string> = new Map();
 
   order: string[] = [];
 
@@ -35,12 +14,23 @@ export default class DataGripByAuthor {
 
   clear() {
     this.messages.clear();
+    this.refUserIdName.clear();
     this.order = [];
     this.statistic = [];
   }
 
+  replaceUserIdToName(details: HashMap<number>) {
+    const newDetails = {};
+    const list = Object.fromEntries(details);
+    for (let id in list) {
+      const name = this.refUserIdName.get(id) || id;
+      newDetails[name] = list[id];
+    }
+    return newDetails;
+  }
+
   addMessage(messageInfo: MessageInfo) {
-    const statistic = this.messages.get(messageInfo.from_id);
+    const statistic = this.messages.get(messageInfo.userId);
     if (statistic) {
       this.#update(statistic, messageInfo);
     } else {
@@ -49,20 +39,20 @@ export default class DataGripByAuthor {
   }
 
   #update(statistic: any, messageInfo: MessageInfo) {
-    statistic.name = messageInfo.from;
+    statistic.name = messageInfo.name;
     statistic.messagesNumber += 1;
-    statistic.to = messageInfo.date;
-    statistic.messagesSize.update(getTextLength(messageInfo?.text));
+    statistic.lastMessage = messageInfo;
+    statistic.messagesSize.update(messageInfo?.text?.length);
   }
 
   #add(messageInfo: MessageInfo) {
     const messagesSize = new WeightedAverage();
-    messagesSize.update(getTextLength(messageInfo?.text));
-    this.messages.set(messageInfo.from_id, {
-      id: messageInfo.from_id,
-      name: messageInfo.from,
-      from: messageInfo.date,
-      to: messageInfo.date,
+    messagesSize.update(messageInfo?.text?.length);
+    this.messages.set(messageInfo.userId, {
+      id: messageInfo.userId,
+      name: messageInfo.name,
+      firstMessage: messageInfo,
+      lastMessage: messageInfo,
       messagesNumber: 1,
       messagesSize,
       reactionsReceivedTotal: 0,
@@ -73,13 +63,17 @@ export default class DataGripByAuthor {
   updateTotalInfo(statisticByReactions: any) {
     this.statistic = Array.from(this.messages.values())
       .map((user) => {
+        this.refUserIdName.set(user.id, user.name);
+        return user;
+      })
+      .map((user) => {
         user.messagesSize = Math.round(user.messagesSize.get());
         const reactions = statisticByReactions.users.get(user.id);
         if (reactions) {
           user.reactionsReceivedTotal = reactions.receivedTotal;
           user.reactionsGiveTotal = reactions.giveTotal;
-          user.reactionsReceived = replaceIdToName(this.messages, reactions.received);
-          user.reactionsGive = replaceIdToName(this.messages, reactions.give);
+          user.reactionsReceived = this.replaceUserIdToName(reactions.received);
+          user.reactionsGive = this.replaceUserIdToName(reactions.give);
         }
         return user;
       });

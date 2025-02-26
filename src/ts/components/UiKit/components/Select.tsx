@@ -31,6 +31,7 @@ function UiKitSelect({
     <option
       key={`${option?.id}_${index}`}
       value={option?.id ?? null}
+      className={className}
     >
       {option?.title ?? option?.id ?? ''}
     </option>

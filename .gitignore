@@ -6,6 +6,7 @@
 /build
 /src/ts/translations/src/transactions
 
+result.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -1,23 +1,23 @@
-export interface ReactionAuthor {
+export interface TelegramReactionAuthor {
   from_id: string;
 }
 
-export interface ReactionInfo {
+export interface TelegramReactionInfo {
   type: string;
   count: number;
-  recent: ReactionAuthor[];
+  recent: TelegramReactionAuthor[];
 }
 
-export interface MessageInfo {
-  date: string;
-  date_unixtime: string;
+export interface TelegramMessageInfo {
+  date: string; // "2021-02-03T17:21:38",
+  date_unixtime: string; // "1612362098"
   from: string;
   from_id: string;
   text: string | string[];
-  reactions: ReactionInfo[];
+  reactions: TelegramReactionInfo[];
 }
 
-export interface History {
+export interface TelegramHistory {
   name: string;
-  messages: MessageInfo[];
+  messages: TelegramMessageInfo[];
 }
