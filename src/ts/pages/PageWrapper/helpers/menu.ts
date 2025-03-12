@@ -16,7 +16,7 @@ export const COMMON = [
     id: 'total',
     link: '/common/total/',
     title: 'sidebar.common.total',
-    icon: './assets/menu/common_common.svg',
+    icon: './assets/switch/common.svg',
   },
   {
     id: 'month',

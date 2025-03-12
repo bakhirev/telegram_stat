@@ -4,7 +4,7 @@
   display: grid;
   grid-template-areas: 'sidebar header'
                         'sidebar main';
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 100px 1fr;
   grid-template-rows: 72px 1fr;
   min-height: 100vh;
   background-color: #F5F7F9;
@@ -25,7 +25,7 @@
   &_main_mobile {
     grid-area: main;
     display: block;
-    width: calc(100vw - 258px);
+    width: calc(100vw - 118px);
     min-height: calc(100vh - 72px);
     padding: 24px;
     box-sizing: border-box;
@@ -34,7 +34,7 @@
 
   &_main {
     &_mobile {
-      width: calc(100vw - 240px);
+      width: calc(100vw - 100px);
       padding: 24px 24px 82px;
     }
 

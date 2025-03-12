@@ -21,14 +21,6 @@ function getMenu(navigate: Function): any[] {
       },
     },
     {
-      id: 'person',
-      title: 'sidebar.switch.person',
-      icon: './assets/switch/person.svg',
-      onClick() {
-        navigate('/person/month/all');
-      },
-    },
-    {
       id: 'print',
       title: 'sidebar.buttons.share',
       icon: './assets/menu/share.svg',

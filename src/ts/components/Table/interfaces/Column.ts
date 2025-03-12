@@ -1,10 +1,11 @@
-export type ColumnType = 'STRING' | 'NUMBER' | 'SHORT_NUMBER' | 'DETAILS';
+export type ColumnType = 'STRING' | 'NUMBER' | 'SHORT_NUMBER' | 'DETAILS' | 'DATE';
 
 /** Тип столбца определяет тип содержимого всех ячеек столбца */
 export enum ColumnTypesEnum {
   STRING = 'STRING',
   NUMBER = 'NUMBER',
   SHORT_NUMBER = 'SHORT_NUMBER',
+  DATE = 'DATE',
   DETAILS = 'DETAILS',
 }
 

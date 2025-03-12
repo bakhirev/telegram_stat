@@ -5,8 +5,9 @@ export default `
 § uiKit.dataLoader.rows: строк.
 § uiKit.dataLoader.from: из
 § uiKit.dataLoader.all: Показать все
-§ sidebar.switch.common: Общая
-§ sidebar.switch.person: Частная
+§ uiKit.hoursChart.work: Рабочее время
+§ uiKit.hoursChart.weekend: Не рабочее время
+§ uiKit.hoursChart.days: Количество сообщений в день
 § sidebar.common.total: Общая информация
 § sidebar.common.week: По неделям
 § sidebar.common.month: По месяцам
@@ -14,7 +15,6 @@ export default `
 § sidebar.common.words: Популярные слова
 § page.print.modal.title: Что распечатываем?
 § page.print.modal.page: Текущую страницу
-§ page.print.modal.type: Текущий раздел
 § page.print.modal.all: Всю статистику
 § page.print.modal.cancel: Отмена
 § page.welcome.contacts: Контакты
@@ -29,8 +29,17 @@ export default `
 § page.welcome.step6: Перетащите файл в окно браузера.
 § page.welcome.languages: Язык
 § page.welcome.about: О нас
-§ page.main.chart.title: Количество сообщений
+§ page.main.cards.active.title: Активные пользователи
+§ page.main.cards.active.description: Количество активных пользователей за месяц по отношению к неактивным.
+§ page.main.cards.message.title: Сообщений
+§ page.main.cards.message.description: Количество сообщений оставленное за всё время диалога от всех пользователей.
+§ page.main.cards.reaction.title: Реакций
+§ page.main.cards.reaction.description: Количество реакций оставленное за всё время диалога от всех пользователей.
+§ page.main.chart.title: Разбивка по пользователям
 § page.main.chart.messages: сообщений
+§ page.main.table.messages: сообщений
+§ page.main.table.symbols: букв
+§ page.main.table.reactions: реакций
 § page.main.users.title: Статистика по пользователям
 § page.main.users.name: Имя
 § page.main.users.from: Первое сообщение
@@ -39,8 +48,8 @@ export default `
 § page.main.users.messagesSize: Средняя длина
 § page.main.users.reactionsReceived: Реакций получил
 § page.main.users.reactionsGive: оставил
-§ page.common.month.title: Распределение сообщий по дням
-§ page.common.hours.title: Распределение сообщий по времени
-§ page.common.words.title: Популярные слова
+§ page.month.title: Распределение сообщий по дням
+§ page.hours.title: Распределение сообщий по времени
+§ page.words.title: Популярные слова
 § page.some.random: abc
 `;

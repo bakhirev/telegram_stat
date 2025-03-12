@@ -1,13 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
+import Title from 'ts/components/Title';
+import HoursChart from 'ts/components/HoursChart';
+import PageWrapper from 'ts/components/Page/wrapper';
 import dataGripStore from 'ts/store/DataGrip';
 
-import HoursChart from 'ts/components/HoursChart';
-import Title from 'ts/components/Title';
-import PageWrapper from 'ts/components/Page/wrapper';
-
-import CommonPropsProps from '../../interfaces/CommonProps';
+import CommonPropsProps from '../interfaces/CommonProps';
 
 const Page = observer(({
   user,
@@ -18,7 +17,7 @@ const Page = observer(({
 
   return (
     <>
-      <Title title="page.common.hours.title"/>
+      <Title title="page.hours.title"/>
       <PageWrapper template="table">
         <HoursChart statistic={statistic} />
       </PageWrapper>

@@ -6,7 +6,7 @@
   max-width: 700px;
   height: 90vh;
   max-height: 556px;
-  margin: 32px auto 0 auto;
+  margin: 0 auto 0 auto;
   padding: 0;
 
   white-space: nowrap;
@@ -20,6 +20,11 @@
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center right;
+  background-color: var(--color-white);
+
+  &_wrapper {
+    text-align: center;
+  }
 
   &_screen {
     position: relative;
@@ -73,10 +78,10 @@
     font-size: var(--font-m);
     font-weight: 100;
 
-    display: block;
-    width: 90%;
+    display: inline-block;
+    max-width: 90%;
     height: var(--space-xxl);
-    margin: var(--space-s) auto var(--space-xxl);
+    margin: var(--space-xxl) auto var(--space-s);
 
     line-height: 1.5;
     box-sizing: border-box;
@@ -85,7 +90,8 @@
     text-decoration: none;
     text-overflow: ellipsis;
 
-    color: #3c3c3d;
+    color: var(--color-white);
+    background-color: rgba(55, 88, 249, 0.4);
   }
 
   &_buttons {
@@ -104,12 +110,12 @@
 
     cursor: pointer;
 
-    border: var(--space-xxs) solid var(--color-white); // --color-button-2);
-    border-radius: var(--space-xxl);
-    background-color: var(--color-button-2);
+    border-radius: var(--border-radius-s);
+    border: var(--space-xxs) solid var(--color-button);
+    background-color: var(--color-white);
   }
 
   &_button_selected {
-    background-color: #2F43A5;
+    background-color: var(--color-grey);
   }
 }

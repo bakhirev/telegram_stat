@@ -11,8 +11,9 @@ import NothingFound from 'ts/components/NothingFound';
 
 import ICommonPageProps from 'ts/components/Page/interfaces/CommonPageProps';
 
-import Table from './Table';
 import DepartmentCharts from './Charts';
+import Table from './Table';
+import Cards from './Cards';
 
 const Page = observer(({
   mode,
@@ -30,6 +31,7 @@ const Page = observer(({
 
   return (
     <>
+      <Cards/>
       <DepartmentCharts/>
       <Title title="page.main.users.title"/>
       <DataLoader

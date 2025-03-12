@@ -4,6 +4,7 @@ import { DataGripDay } from 'ts/helpers/DataGrip/components/months';
 import { getDate } from 'ts/helpers/formatter';
 
 import { getPercentByMax, getColor } from '../helpers/day';
+import dayInfoStore from '../store/DayInfo';
 import style from '../styles/index.module.scss';
 
 function getForUserMessageNumbers(dayInfo: DataGripDay): string[] {
@@ -47,9 +48,13 @@ function Day({
   return (
     <div
       title={title}
+      id={`year_chart_day_${dayInfo?.timestamp}`}
       className={style.year_chart_month_body_day}
       style={{
         backgroundColor,
+      }}
+      onClick={() => {
+        dayInfoStore.open(dayInfo);
       }}
     >
       {value || ' '}

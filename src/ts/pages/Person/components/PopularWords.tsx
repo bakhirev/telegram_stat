@@ -32,7 +32,7 @@ const Page = observer(({
 
   return (
     <>
-      <Title title="page.common.words.title"/>
+      <Title title="page.words.title"/>
       <PageWrapper template="table">
         <CandyChart dots={dots}/>
       </PageWrapper>

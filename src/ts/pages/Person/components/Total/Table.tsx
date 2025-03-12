@@ -9,7 +9,6 @@ import LineChart from 'ts/components/LineChart';
 import getOptions from 'ts/components/LineChart/helpers/getOptions';
 
 import dataGripStore from 'ts/store/DataGrip';
-import { getDate } from 'ts/helpers/formatter';
 import { getMax } from 'ts/helpers/getMax';
 
 interface TableViewProps {
@@ -31,24 +30,24 @@ function TableView({
 
   const messagesNumberChart = getOptions({
     max: getMax(response, 'messagesNumber'),
-    suffix: 'page.common.author.days',
+    suffix: 'page.main.table.messages',
   });
 
   const messagesSizeChart = getOptions({
     max: getMax(response, 'messagesSize'),
-    suffix: 'page.common.author.days',
+    suffix: 'page.main.table.symbols',
   });
 
   const reactionsReceivedChart = getOptions({
     order: users.order,
     max: getMax(response, 'reactionsReceivedTotal'),
-    suffix: 'page.common.author.reactionsReceived',
+    suffix: 'page.main.table.reactions',
   });
 
   const reactionsGiveChart = getOptions({
     order: users.order,
     max: getMax(response, 'reactionsGiveTotal'),
-    suffix: 'page.common.author.reactionsGive',
+    suffix: 'page.main.table.reactions',
   });
 
   return (
@@ -142,18 +141,14 @@ function TableView({
         />
       ) : null}
       <Column
-        template={ColumnTypesEnum.STRING}
+        template={ColumnTypesEnum.DATE}
         properties="from"
         title="page.main.users.from"
-        formatter={getDate}
-        width={140}
       />
       <Column
-        template={ColumnTypesEnum.STRING}
+        template={ColumnTypesEnum.DATE}
         properties="to"
         title="page.main.users.to"
-        formatter={getDate}
-        width={140}
       />
     </DataView>
   );

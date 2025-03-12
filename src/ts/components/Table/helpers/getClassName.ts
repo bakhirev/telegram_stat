@@ -2,7 +2,12 @@ import { IColumn } from '../interfaces/Column';
 
 import style from '../styles/index.module.scss';
 
-export default function getClassName(defaultClassName: string, column: IColumn, args?: any, className?: string) {
+export default function getClassName(
+  defaultClassName: string,
+  column: IColumn,
+  args?: any,
+  className?: string,
+) {
   const localClassName = [defaultClassName];
 
   if (className) {

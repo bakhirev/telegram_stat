@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
 import ru from 'ts/translations/ru';
+import en from 'ts/translations/en';
 
 import initializationI18n from './ts/helpers/i18n';
 
@@ -22,6 +23,7 @@ if (module.hot) {
 }
 
 localization.parse('ru', ru);
+localization.parse('en', en);
 
 function renderReactApplication() {
   window.onafterprint = () => {

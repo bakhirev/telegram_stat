@@ -62,6 +62,10 @@ export function getShortTime(timestamp: string | number) {
   return getCustomDate(timestamp, { hour: 'numeric', minute: 'numeric' });
 }
 
+export function getNumber(value: number) {
+  return value.toLocaleString(getLangPrefix());
+}
+
 export function getDateForExcel(timestamp: string) {
   if (!timestamp) return '';
   const date = new Date(timestamp);

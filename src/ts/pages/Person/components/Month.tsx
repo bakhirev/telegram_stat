@@ -23,7 +23,7 @@ const Month = observer(({
 
   return (
     <>
-      <Title title="page.common.month.title"/>
+      <Title title="page.month.title"/>
       <PageWrapper template="table">
         <YearChart
           max={months.counter.max}

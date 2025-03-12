@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { DataGripMonth } from 'ts/helpers/DataGrip/components/months';
 
+import DayInfo from './components/DayInfo';
 import Month from './components/Month';
 import style from './styles/index.module.scss';
 
@@ -65,6 +66,8 @@ function YearChart({
       className={style.year_chart}
     >
       {elements}
+
+      <DayInfo />
     </div>
   );
 }
