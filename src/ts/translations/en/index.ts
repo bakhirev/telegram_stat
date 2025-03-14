@@ -1,17 +1,17 @@
 export default `
 § common.filters: Filters
 § uiKit.dataLoader.page: Page
-§ uiKit.dataLoader.size: Displayed by
-§ uiKit.dataLoader.rows: lines.
+§ uiKit.dataLoader.size: Displayed
+§ uiKit.dataLoader.rows: rows.
 § uiKit.dataLoader.from: from
 § uiKit.dataLoader.all: Show all
 § uiKit.hoursChart.work: Working hours
 § uiKit.hoursChart.weekend: Not working hours
 § uiKit.hoursChart.days: Number of messages per day
 § sidebar.common.total: General information
-§ sidebar.common.week: By week
-§ sidebar.common.month: By month
-§ sidebar.common.hours: By the clock
+§ sidebar.common.week: By weeks
+§ sidebar.common.month: By months
+§ sidebar.common.hours: By hours
 § sidebar.common.words: Popular words
 § page.print.modal.title: What are we printing?
 § page.print.modal.page: The current page
@@ -25,7 +25,7 @@ export default `
 § page.welcome.step2: Select "Export chat history".
 § page.welcome.step3: Uncheck all the boxes.
 § page.welcome.step4: Select the "JSON" format.
-§ page.welcome.step5: Click "Show file".
+§ page.welcome.step5: Click "Show my data".
 § page.welcome.step6: Drag and drop the file into the browser.
 § page.welcome.languages: Language
 § page.welcome.about: About us
@@ -50,6 +50,5 @@ export default `
 § page.main.users.reactionsGive: sented
 § page.month.title: Distribution of messages by day
 § page.hours.title: Distribution of messages by time
-§ page.words.title: Popular
-§ page.some.random: abc
+§ page.words.title: Popular words
 `;

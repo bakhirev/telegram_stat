@@ -1,8 +1,12 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import ru from '../translations/ru';
-import en from '../translations/en';
+import de from 'ts/translations/de';
+import en from 'ts/translations/en';
+import es from 'ts/translations/es';
+import fr from 'ts/translations/fr';
+import pt from 'ts/translations/pt';
+import ru from 'ts/translations/ru';
 import localization from './Localization';
 
 function getJsonFromString(text: string) {
@@ -29,8 +33,12 @@ function getTranslationWrapper(translation: string) {
 }
 
 const translations = {
-  ru: getTranslationWrapper(ru),
+  de: getTranslationWrapper(de),
   en: getTranslationWrapper(en),
+  es: getTranslationWrapper(es),
+  fr: getTranslationWrapper(fr),
+  pt: getTranslationWrapper(pt),
+  ru: getTranslationWrapper(ru),
 };
 
 export const BROWSER_LANGUAGE = navigator.languages

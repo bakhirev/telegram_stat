@@ -11,7 +11,6 @@ import style from '../styles/header.module.scss';
 const list = {
   en: 'English',
   es: 'Español',
-  zh: '中文',
   de: 'Deutsch',
   fr: 'Français',
   pt: 'Português',

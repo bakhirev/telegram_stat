@@ -35,7 +35,6 @@ function Footer() {
           options={[
             'English',
             'Español',
-            '中文',
             'Deutsch',
             'Français',
           ]}
@@ -45,8 +44,6 @@ function Footer() {
           options={[
             'Português',
             'Русский',
-            '日本語',
-            '한국어',
           ]}
         />
       </section>

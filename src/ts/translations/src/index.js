@@ -5,7 +5,7 @@ const PAGES = [
 ];
 
 function createTemplate(page) {
-  const text = fs.readFileSync(`../ru/${page}.ts`, 'utf8');
+  const text = fs.readFileSync(`../en/${page}.ts`, 'utf8');
   const content = text
     .replace(/(§\s[A-Z0-9._]+)(:\s){0,}/gim, '')
     .replace(/(export\sdefault\s`)|(`;)/gim, '');

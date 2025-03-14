@@ -30,15 +30,19 @@ class Localization {
   }
 
   parse(langId: string, text: string) {
-    text.split('§ ').slice(1).forEach((part: string) => {
-      let index = part.indexOf('\n');
-      if (index === (part.length - 1)) {
-        index = part.indexOf(':');
-      }
-      const key = langId + '.' + part.slice(0, index);
-      const value = part.slice(index + 1).trim();
-      this.#addInTranslate(key, value);
-    });
+    text
+      .trim()
+      .split('§ ')
+      .slice(1)
+      .forEach((part: string) => {
+        let index = part.indexOf('\n');
+        if (index === (part.length - 1)) {
+          index = part.indexOf(':');
+        }
+        const key = langId + '.' + part.slice(0, index);
+        const value = part.slice(index + 1).trim();
+        this.#addInTranslate(key, value);
+      });
   }
 
   #addInTranslate(key: string, value: string) {

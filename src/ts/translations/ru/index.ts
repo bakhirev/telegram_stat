@@ -51,5 +51,4 @@ export default `
 § page.month.title: Распределение сообщий по дням
 § page.hours.title: Распределение сообщий по времени
 § page.words.title: Популярные слова
-§ page.some.random: abc
 `;

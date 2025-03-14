@@ -1,55 +1,54 @@
 
-Фильтры
-Страница
-Отображается по
-строк.
-из
-Показать все
-Рабочее время
-Не рабочее время
-Количество сообщений в день
-Общая информация
-По неделям
-По месяцам
-По часам
-Популярные слова
-Что распечатываем?
-Текущую страницу
-Всю статистику
-Отмена
-Контакты
-Статистика чатов в Телеграмме
-Разбивка по дням, часам, пользователям. Подсчёт активных участников. Анализ активности и реакций.
-Как посмотреть
-Нажмите «...» в правом верхнем углу.
-Выберите пункт «Экспорт истории чата».
-Снимите все галочки.
-Выберите формат «JSON».
-Нажмите «Показать файл».
-Перетащите файл в окно браузера.
-Язык
-О нас
-Активные пользователи
-Количество активных пользователей за месяц по отношению к неактивным.
-Сообщений
-Количество сообщений оставленное за всё время диалога от всех пользователей.
-Реакций
-Количество реакций оставленное за всё время диалога от всех пользователей.
-Разбивка по пользователям
-сообщений
-сообщений
-букв
-реакций
-Статистика по пользователям
-Имя
-Первое сообщение
-Последнее
-Всего
-Средняя длина
-Реакций получил
-оставил
-Распределение сообщий по дням
-Распределение сообщий по времени
-Популярные слова
-abc
+Filters
+Page
+Displayed
+rows.
+from
+Show all
+Working hours
+Not working hours
+Number of messages per day
+General information
+By weeks
+By months
+By hours
+Popular words
+What are we printing?
+The current page
+All statistics
+Cancel
+Contacts
+Telegram chat statistics
+By day, hour, and user. Counting of active participants. Analysis of activity and reactions.
+How to view
+Click "..." in the upper-right corner.
+Select "Export chat history".
+Uncheck all the boxes.
+Select the "JSON" format.
+Click "Show my data".
+Drag and drop the file into the browser.
+Language
+About us
+Active users
+The number of active users per month in relation to inactive users.
+Messages
+The number of messages left during the entire dialog from all users.
+Reactions
+The number of reactions left during the entire dialog from all users.
+By users
+messages
+messages
+symbols
+reactions
+User statistics
+Name
+The first message
+Last
+Total
+Average length
+Reactions received
+sented
+Distribution of messages by day
+Distribution of messages by time
+Popular words
 

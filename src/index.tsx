@@ -3,8 +3,12 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 
 import localization from 'ts/helpers/Localization';
-import ru from 'ts/translations/ru';
+import de from 'ts/translations/de';
 import en from 'ts/translations/en';
+import es from 'ts/translations/es';
+import fr from 'ts/translations/fr';
+import pt from 'ts/translations/pt';
+import ru from 'ts/translations/ru';
 
 import initializationI18n from './ts/helpers/i18n';
 
@@ -22,8 +26,12 @@ if (module.hot) {
   module.hot.accept();
 }
 
-localization.parse('ru', ru);
+localization.parse('de', de);
 localization.parse('en', en);
+localization.parse('es', es);
+localization.parse('fr', fr);
+localization.parse('pt', pt);
+localization.parse('ru', ru);
 
 function renderReactApplication() {
   window.onafterprint = () => {
